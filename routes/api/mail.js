@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-const sendEmail = async (toMail, User) => {
+const sendEmail = async (toMail, User, donationId) => {
     const transporter = nodemailer.createTransport({
         service:'gmail',
         host:'smtp.gmail.com',
@@ -20,10 +20,11 @@ const sendEmail = async (toMail, User) => {
             },
             to:toMail,
             subject:'Your food has been claimed',
-            text:`Claimed by User:${User.username} (${User.email}) ${User.address}, ${User.contactNumber}`,
+            text:`Claimed by User:${User.name} (${User.email}) \n ${User.address}, \n ${User.contactNumber} 
+                    \n Link: http://localhost:3500/donation-details.html?id=${donationId}`,
         });
     } catch(err) {
-        console.error('Error sending email:', err);
+        console.error('Error sending email:', err); 
     }
 }
 

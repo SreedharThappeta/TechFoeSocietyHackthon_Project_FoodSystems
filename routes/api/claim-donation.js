@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
         const donor = await RegisteredBase.findById(donat.donorId);
 
         
-        await sendEmail(donor.email, donor);
+        await sendEmail(donor.email, req.user,donationId);
         
 
         if (!donationId) return res.status(400).json({ message: "DonationId not provided" });
