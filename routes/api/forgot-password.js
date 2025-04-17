@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
             },
             to: email,
             subject: 'Reset Password Request',
-            text: `Link: http://localhost:3500/resetpassword?token=${token}&email=${email}`
+            text: `Link: http://3.110.45.191:3500/resetpassword?token=${token}&email=${email}`
         });
 
         console.log('Email sent successfully to:', email);

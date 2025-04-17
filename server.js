@@ -88,7 +88,7 @@ app.use('/login', async (req,res) => {
 
         res.cookie("userToken", userToken, { 
             httpOnly:true, // prevents from frontend access
-            secure:true, // only for HTTPS
+            secure:false, // only for HTTPS
             sameSite:"lax", // prevents from cross-site requests
             maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
         });
@@ -265,7 +265,7 @@ app.use('/api/forgotpassword',async (req, res) => {
                 },
                 to:email,
                 subject:'Reset Password Request',
-                text:'Link: http://localhost:3500/forgotpassword?token=' + token+"&email=" + email,
+                text:'Link: http://3.110.45.191:3500/forgotpassword?token=' + token+"&email=" + email,
             });
 
             console.log('Email sent successfully to:', email);

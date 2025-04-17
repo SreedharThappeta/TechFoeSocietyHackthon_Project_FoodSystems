@@ -21,7 +21,7 @@ const sendEmail = async (toMail, User, donationId) => {
             to:toMail,
             subject:'Your food has been claimed',
             text:`Claimed by User:${User.name} (${User.email}) \n ${User.address}, \n ${User.contactNumber} 
-                    \n Link: http://localhost:3500/donation-details.html?id=${donationId}`,
+                    \n Link: http://3.110.45.191:3500/donation-details.html?id=${donationId}`,
         });
     } catch(err) {
         console.error('Error sending email:', err); 
